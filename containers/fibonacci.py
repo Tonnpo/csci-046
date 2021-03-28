@@ -68,7 +68,7 @@ class Fib:
 
     def __repr__(self):
         textitr = '' if self.n is None else str(self.n)
-        return "Fib("+textitr+")"
+        return "Fib(" + textitr + ")"
 
 
 class FibIter:
