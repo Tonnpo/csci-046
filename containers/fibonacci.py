@@ -104,7 +104,7 @@ def fib_yield(n=None):
     i = 0
     while True:
         if n is not None and n - 1 < i:
-            raise StopIteration
+            return
         else:
             if i < 2:
                 f2 = 1

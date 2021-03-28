@@ -41,6 +41,6 @@ def range(a, b=None, c=None):
     step = 1 if c is None else c
     while start != stop:
         if (step > 0 and start > stop) or (step < 0 and start < stop):
-            raise StopIteration
+            return
         yield start
         start += step
