@@ -19,9 +19,8 @@ class NormalizedStr:
         self.normal_form = normal_form
 
     def __repr__(self):
-        return "NormalizedStr('" \
-                + unicodedata.normalize(self.normal_form, self.text) + "', '" \
-                + self.normal_form + "')"
+        textnorm = unicodedata.normalize(self.normal_form, self.text)
+        return "NormalizedStr('" + textnorm + "', '" + self.normal_form + "')"
 
     def __str__(self):
         return unicodedata.normalize(self.normal_form, self.text)
