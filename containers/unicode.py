@@ -45,7 +45,7 @@ class NormalizedStr:
         Returns a copy in the same normalized form, but upper case.
         '''
         text_norm = copy(unicodedata.normalize(self.normal_form, self.text))
-        return text_norm.lower()
+        return text_norm.upper()
 
     def __add__(self, b):
         text_norm = unicodedata.normalize(self.normal_form, self.text)
