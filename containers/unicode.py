@@ -1,5 +1,5 @@
 import unicodedata
-import copy
+from copy import copy
 
 
 class NormalizedStr:
@@ -20,8 +20,8 @@ class NormalizedStr:
 
     def __repr__(self):
         return "NormalizedStr('" \
-                + unicodedata.normalize(self.normal_form, self.text) + "', '"\
-                + self.normal_form+"')"
+                + unicodedata.normalize(self.normal_form, self.text) + "', '" \
+                + self.normal_form + "')"
 
     def __str__(self):
         return unicodedata.normalize(self.normal_form, self.text)
@@ -30,27 +30,28 @@ class NormalizedStr:
         return len(unicodedata.normalize(self.normal_form, self.text))
 
     def __contains__(self, substr):
-        return unicodedata.normalize(self.normal_form, substr) \
-                in unicodedata.normalize(self.normal_form, self.text)
+        sub_norm = unicodedata.normalize(self.normal_form, substr)
+        text_norm = unicodedata.normalize(self.normal_form, self.text)
+        return sub_norm in text_norm
 
     def __getitem__(self, index):
         return list(unicodedata.normalize(self.normal_form, self.text))[index]
 
     def lower(self):
-        return copy.copy(unicodedata.normalize(self.normal_form, self.text))\
-                .lower()
+        text_norm = copy(unicodedata.normalize(self.normal_form, self.text))
+        return text_norm.lower()
 
     def upper(self):
         '''
         Returns a copy in the same normalized form, but upper case.
         '''
-        return copy.copy(unicodedata.normalize(self.normal_form, self.text))\
-            .upper()
+        text_norm = copy(unicodedata.normalize(self.normal_form, self.text))
+        return text_norm.lower()
 
     def __add__(self, b):
-        textNorm = unicodedata.normalize(self.normal_form, self.text)
-        bNorm = unicodedata.normalize(self.normal_form, str(b))
-        combined = unicodedata.normalize(self.normal_form, textNorm + bNorm)
+        text_norm = unicodedata.normalize(self.normal_form, self.text)
+        b_norm = unicodedata.normalize(self.normal_form, str(b))
+        combined = unicodedata.normalize(self.normal_form, text_norm + b_norm)
         return NormalizedStr(combined, self.normal_form)
 
     def __iter__(self):
@@ -67,7 +68,7 @@ class NormalizedIter:
         if self.i < \
                 len(unicodedata.normalize(self.normal_form, self.text)) - 1:
             self.i += 1
-            textNorm = unicodedata.normalize(self.normal_form, self.text)
-            return list(textNorm)[self.i]
+            text_norm = unicodedata.normalize(self.normal_form, self.text)
+            return list(text_norm)[self.i]
         else:
             raise StopIteration
