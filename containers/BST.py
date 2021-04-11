@@ -135,6 +135,7 @@ class BST(BinaryTree):
         else:
             return BST._find_largest(self.root)
 
+    @staticmethod
     def _find_largest(node):
         assert node is not None
         if node.right is None:
