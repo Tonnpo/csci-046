@@ -54,22 +54,22 @@ class AVLTree(BST):
     @staticmethod
     def _left_rotate(node):
         if node.right:
-            newNode = copy(node.right)
-            leftChild = newNode.left
-            newNode.left = copy(node)
-            newNode.left.right = leftChild
-            return newNode
+            new_node = copy(node.right)
+            left_child = new_node.left
+            new_node.left = copy(node)
+            new_node.left.right = left_child
+            return new_node
         else:
             return node
 
     @staticmethod
     def _right_rotate(node):
         if node.left:
-            newNode = copy(node.left)
-            rightChild = newNode.right
-            newNode.right = copy(node)
-            newNode.right.left = rightChild
-            return newNode
+            new_node = copy(node.left)
+            right_child = new_node.right
+            new_node.right = copy(node)
+            new_node.right.left = right_child
+            return new_node
         else:
             return node
 
