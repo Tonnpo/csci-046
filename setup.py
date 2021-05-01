@@ -14,12 +14,7 @@ setup(
         url="https://github.com/Tonnpo/csci-046",
         author="Ton Pothisawang",
         author_email="Tpothis@students.pitzer.edu",
-        license="BSD-3-Clause",
-        classifiers=[
-            "License :: OSI Approved :: BSD-3-Clause License",
-            "Programming Language :: Python :: 3",
-            "Programming Language :: Python :: 3.7",
-        ],
+        license="BSD 3-Clause",
         packages=find_packages(exclude=("tests")),
         include_package_data=True,
 )
